@@ -1,5 +1,6 @@
 ﻿import fs from "fs"; // https://nodejs.org/docs/latest-v14.x/api/fs.html
 import http from "http"; // https://nodejs.org/docs/latest-v14.x/api/http.html
+import Solution from "./Solution";
 // import url from "url"; // https://nodejs.org/docs/latest-v14.x/api/url.html
 
 export default function content(req: http.IncomingMessage, res: http.ServerResponse): void {
@@ -25,6 +26,11 @@ export default function content(req: http.IncomingMessage, res: http.ServerRespo
     // Kezd a kódolást innen -->
 
     res.write("Csapatmunka - Juhász Roland & Horváth Márk ÜtemzésFeladat (2024/2025)\n");
+
+    const so: Solution = new Solution("taborok.txt");
+    res.write(`2. feladat: \nAz adatsorok száma: ${so.campsNumber}`);
+    res.write(`\nAz először rögzített tábor témája: ${so.firstCampCategory}`);
+    res.write(`\nAz utoljára rögzített tábor témája: ${so.lastCampCategory}`);
 
     res.write("</pre></form></body></html>");
     res.end();
