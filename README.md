@@ -1,3 +1,1 @@
 # utemzes
-itt vagyok
-ka
