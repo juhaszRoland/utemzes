@@ -1,0 +1,12 @@
+{
+    "recommendations": [
+        "dbaeumer.vscode-eslint",
+        "christian-kohler.npm-intellisense",
+        "esbenp.prettier-vscode",
+        "tomoki1207.pdf",
+        "formulahendry.auto-rename-tag",
+        "eamodio.gitlens",
+        "formulahendry.auto-close-tag",
+        "christian-kohler.path-intellisense"
+    ]
+}

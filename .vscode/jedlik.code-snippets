@@ -1,0 +1,61 @@
+{
+	"res.write()": {
+        "prefix": "íres.write()",
+        "description": "Kiírás template string-el",
+        "scope": "typescript",
+        "body": ["res.write(`\\${csak_string}\\n`);"]
+    },
+    "fs.readFileSync()": {
+        "prefix": "ífs.readFileSync()",
+        "description": "Szöveges állomány olvasása",
+        "scope": "typescript",
+        "body": ["fs.readFileSync(${1:\"forrás\"}).toString().split(\"\\n\").forEach(sor => {const aktSor=sor.trim(); if (aktSor.length > 0) {}});"]
+    },
+    "fs.writeFileSync()": {
+        "prefix": "ífs.writeFileSync()",
+        "description": "Szöveges állomány írása",
+        "scope": "typescript",
+        "body": ["fs.writeFileSync(${1:\"állományNeve\"}, ${2:állományTartalmaStr});"]
+    },
+    "Map init": {
+        "prefix": "íMap - init",
+        "description": "Üres Map inicializálása",
+        "scope": "typescript",
+        "body": ["const myMap: Map<${1:string}, ${2:number}> = new Map();"]
+    },
+    "Map has": {
+        "prefix": "íMap - has",
+        "description": "Kulcs létezésének vizsgálata",
+        "scope": "typescript",
+        "body": ["if (myMap.has(${1:\"kulcs\"})) {\n}"]
+    },
+    "Map set": {
+        "prefix": "íMap - set",
+        "description": "Kulcs-érték pár hozzáadása, módosítása",
+        "scope": "typescript",
+        "body": ["myMap.set(\"(új/meglévő kulcs\", érték);"]
+    },
+     "Map get": {
+        "prefix": "íMap - sgetet",
+        "description": "Kulcshoz tartozó érték lekérdezése",
+        "scope": "typescript",
+        "body": ["myMap.get(${1:\"kulcs\"});"]
+    },
+
+    // Place your jedlik-frontend-starter workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and
+    // description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope
+    // is left empty or omitted, the snippet gets applied to all languages. The prefix is what is
+    // used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+    // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders.
+    // Placeholders with the same ids are connected.
+    // Example:
+    // "Print to console": {
+    // 	"scope": "javascripttypescript",
+    // 	"prefix": "log",
+    // 	"body": [
+    // 		"console.log('$1');",
+    // 		"$2"
+    // 	],
+    // 	"description": "Log output to console"
+    // }
+}
