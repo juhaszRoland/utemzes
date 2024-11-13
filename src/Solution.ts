@@ -21,4 +21,16 @@ export default class Solution {
             }
         }
     }
+
+    get campsNumber(): number {
+        return this.#camps.length;
+    }
+
+    get firstCampCategory(): string {
+        return this.#camps[0].category;
+    }
+
+    get lastCampCategory(): string | undefined {
+        return this.#camps.length > 0 ? this.#camps[this.#camps.length - 1].category : undefined;
+    }
 }

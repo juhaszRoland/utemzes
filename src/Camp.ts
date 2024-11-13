@@ -4,7 +4,7 @@ export default class Camp {
     #endMonth: number;
     #endDay: number;
     #nameLetters: string;
-    #category: string;
+    category: string;
 
     constructor(sor: string) {
         const m: string[] = sor.split("\t");
@@ -19,6 +19,6 @@ export default class Camp {
         this.#endDay = parseInt(m[3]);
 
         this.#nameLetters = m[4];
-        this.#category = m[5];
+        this.category = m[5];
     }
 }
