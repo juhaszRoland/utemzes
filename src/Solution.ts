@@ -33,4 +33,14 @@ export default class Solution {
     get lastCampCategory(): string | undefined {
         return this.#camps.length > 0 ? this.#camps[this.#camps.length - 1].category : undefined;
     }
+
+    getMusicCampStartDates(category: string): string[] {
+        const musicCamps = this.#camps.filter(camp => camp.category === category);
+
+        if (musicCamps.length === 0) {
+            return [`Nem volt ${category} tábor.`];
+        } else {
+            return musicCamps.map(camp => `\nZenei tábor keződik ${camp.startMonth}. hó ${camp.startDay}. napján`);
+        }
+    }
 }

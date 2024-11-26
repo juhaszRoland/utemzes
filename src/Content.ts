@@ -31,6 +31,7 @@ export default function content(req: http.IncomingMessage, res: http.ServerRespo
     res.write(`2. feladat: \nAz adatsorok száma: ${so.campsNumber}`);
     res.write(`\nAz először rögzített tábor témája: ${so.firstCampCategory}`);
     res.write(`\nAz utoljára rögzített tábor témája: ${so.lastCampCategory}`);
+    res.write(`\n3. feladat: ${so.getMusicCampStartDates("zenei")}`);
 
     res.write("</pre></form></body></html>");
     res.end();
