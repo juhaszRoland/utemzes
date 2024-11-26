@@ -1,24 +1,32 @@
 export default class Camp {
     startMonth: number;
     startDay: number;
-    #endMonth: number;
-    #endDay: number;
-    #nameLetters: string;
+    private endMonth: number;
+    private endDay: number;
+    private nameLetters: string;
     category: string;
 
-    constructor(sor: string) {
-        const m: string[] = sor.split("\t");
+    constructor(row: string) {
+        const parts: string[] = row.split("\t");
 
-        if (m.length !== 6) {
+        if (parts.length !== 6) {
             throw new Error("A bemeneti sor nem megfelelő formátumú.");
         }
 
-        this.startMonth = parseInt(m[0]);
-        this.startDay = parseInt(m[1]);
-        this.#endMonth = parseInt(m[2]);
-        this.#endDay = parseInt(m[3]);
+        this.startMonth = parseInt(parts[0]);
+        this.startDay = parseInt(parts[1]);
+        this.endMonth = parseInt(parts[2]);
+        this.endDay = parseInt(parts[3]);
 
-        this.#nameLetters = m[4];
-        this.category = m[5];
+        this.nameLetters = parts[4];
+        this.category = parts[5];
+    }
+
+    get participantCount(): number {
+        return this.nameLetters.length;
+    }
+
+    get startDate(): string {
+        return `${this.startMonth}.${this.startDay}`;
     }
 }

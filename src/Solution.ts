@@ -43,4 +43,11 @@ export default class Solution {
             return musicCamps.map(camp => `\nZenei tábor keződik ${camp.startMonth}. hó ${camp.startDay}. napján`);
         }
     }
+
+    getMostPopularCamps(): string[] {
+        const maxParticipants = Math.max(...this.#camps.map(camp => camp.participantCount));
+        const popularCamps = this.#camps.filter(camp => camp.participantCount === maxParticipants);
+
+        return popularCamps.map(camp => `${camp.startDate} - ${camp.category}`);
+    }
 }

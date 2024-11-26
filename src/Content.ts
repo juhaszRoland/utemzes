@@ -33,6 +33,9 @@ export default function content(req: http.IncomingMessage, res: http.ServerRespo
     res.write(`\nAz utoljára rögzített tábor témája: ${so.lastCampCategory}`);
     res.write(`\n3. feladat: ${so.getMusicCampStartDates("zenei")}`);
 
+    res.write("\n4. feladat: \nA legnépszerűbbek:\n");
+    res.write(so.getMostPopularCamps().join("\n"));
+
     res.write("</pre></form></body></html>");
     res.end();
 }
