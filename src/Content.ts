@@ -36,6 +36,8 @@ export default function content(req: http.IncomingMessage, res: http.ServerRespo
     res.write("\n4. feladat: \nA legnépszerűbbek:\n");
     res.write(so.getMostPopularCamps().join("\n"));
 
+    res.write(`\nTeszt: ${so.sorszam(6, 16)}`);
+
     res.write("</pre></form></body></html>");
     res.end();
 }
