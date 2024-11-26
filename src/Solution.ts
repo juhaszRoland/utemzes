@@ -50,4 +50,22 @@ export default class Solution {
 
         return popularCamps.map(camp => `${camp.startDate} - ${camp.category}`);
     }
+
+    sorszam(month: number, day: number): number {
+        const daysInJune = 30;
+        const daysInJuly = 31;
+        const startOfSummer = 16;
+
+        let dayOfSummer = 0;
+
+        if (month === 6) {
+            dayOfSummer = day - startOfSummer + 1;
+        } else if (month === 7) {
+            dayOfSummer = daysInJune - startOfSummer + 1 + day;
+        } else if (month === 8) {
+            dayOfSummer = daysInJune - startOfSummer + 1 + daysInJuly + day;
+        }
+
+        return dayOfSummer;
+    }
 }
