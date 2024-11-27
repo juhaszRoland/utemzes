@@ -1,7 +1,7 @@
 ﻿import fs from "fs"; // https://nodejs.org/docs/latest-v14.x/api/fs.html
 import http from "http"; // https://nodejs.org/docs/latest-v14.x/api/http.html
 import Solution from "./Solution";
-// import url from "url"; // https://nodejs.org/docs/latest-v14.x/api/url.html
+import url from "url"; // https://nodejs.org/docs/latest-v14.x/api/url.html
 
 export default function content(req: http.IncomingMessage, res: http.ServerResponse): void {
     // favicon.ico kérés kiszolgálása:
@@ -21,7 +21,7 @@ export default function content(req: http.IncomingMessage, res: http.ServerRespo
     res.write("<title>Jedlik Ts Template</title>");
     res.write("</head>");
     res.write("<body><form><pre>");
-    // const params = new url.URL(req.url as string, `http://${req.headers.host}/`).searchParams;
+    const params = new url.URL(req.url as string, `http://${req.headers.host}/`).searchParams;
 
     // Kezd a kódolást innen -->
 
@@ -36,8 +36,19 @@ export default function content(req: http.IncomingMessage, res: http.ServerRespo
     res.write("\n4. feladat: \nA legnépszerűbbek:\n");
     res.write(so.getMostPopularCamps().join("\n"));
 
+    let iMonth: number = parseInt(params.get("iMonth") as string);
+    if (isNaN(iMonth)) {
+        iMonth = 8;
+    }
+    let iDay: number = parseInt(params.get("iDay") as string);
+    if (isNaN(iDay)) {
+        iDay = 1;
+    }
+    res.write("\n6. feladat:");
+    res.write(`\n<label>hó: <input type='number' name='iMonth' value=${iMonth} style='max-width:100px;' onChange='this.form.submit();'></label>\n`);
+    res.write(`<label>nap: <input type='number' name='iDay' value=${iDay} style='max-width:100px;' onChange='this.form.submit();'></label>\n`);
+    res.write(`\nEkkor éppen ${undefined} tábor tart\n`);
     res.write(`\nTeszt: ${so.sorszam(6, 16)}`);
-
     res.write("</pre></form></body></html>");
     res.end();
 }
