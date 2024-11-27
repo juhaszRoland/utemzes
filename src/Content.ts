@@ -48,7 +48,6 @@ export default function content(req: http.IncomingMessage, res: http.ServerRespo
     res.write(`\n<label>hó: <input type='number' name='iMonth' value=${iMonth} style='max-width:100px;' onChange='this.form.submit();'></label>\n`);
     res.write(`<label>nap: <input type='number' name='iDay' value=${iDay} style='max-width:100px;' onChange='this.form.submit();'></label>\n`);
     res.write(`\nEkkor éppen ${undefined} tábor tart\n`);
-    res.write(`\nTeszt: ${so.sorszam(6, 16)}`);
     res.write("</pre></form></body></html>");
     res.end();
 }
